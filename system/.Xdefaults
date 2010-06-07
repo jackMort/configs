@@ -1,0 +1,70 @@
+XTerm*utmpInhibit:      false
+XTerm*cursorBlink:      true
+XTerm*reverseVideo:     true
+Xterm*colorBDMode:      true           
+XTerm*utf8:             1
+XTerm*scrollBar:        false
+XTerm*backarrowKeyIsErase:      false
+XTerm*jumpScroll:       false
+XTerm*curses:           false
+XTerm*locale:           UTF-8
+#XTerm*foreground:       black
+#XTerm*background:       white
+XTerm*loginShell:       true
+XTerm*multiScroll:      true
+XTerm*faceName:         Verdana-7:minspace=false:lang=pl:hinting=true
+#XTerm*faceName:        monofur-6:minspace=true:lang=pl:hinting=true
+#XTerm*faceName:         Andale Mono-6:minspace=true:lang=pl:hinting=false
+XTerm*saveLines:        10000
+Xterm*boldMode:         false
+Xterm*veryBoldColors:   14
+XTerm.*.geometry:       130x30
+ 
+
+aterm*loginShell:false
+#aterm*transparent:true
+#aterm*shading:99
+aterm*background:white
+aterm*foreground:black
+aterm*scrollBar:false
+aterm*scrollBar_right:false
+aterm*saveLines:32767
+aterm*geometry:110x30
+aterm*cursorColor:#12FF2A
+#aterm*tinting:#12FF2A
+aterm*tinting:#33ff00
+#aterm*tinting:#137DE4
+#aterm*tinting:#ff3300
+
+aterm*font:-*-fixed-*-*-*-*-*-*-*-*-*-*-iso8859-2
+#aterm*font:-*-terminal-*-*-normal-*-*-*-*-*-*-*-iso8859-2
+
+#*background:     #121212
+!black
+#*color0:         #353535
+#*color8:         #666666
+!red
+#*color1:         #AE4747
+#*color9:         #EE6363
+!green
+#*color2:         #556B2F
+#*color10:        #9ACD32
+!brown/yellow
+#*color3:         #DAA520
+#*color11:        #FFC125
+!blue
+#*color4:         #6F99B4
+#*color12:        #7C96B0
+!magenta
+#*color5:         #8B7B8B
+#*color13:        #D8BFD8
+!cyan
+#*color6:         #A7A15E
+#*color6:         #ffffff
+#*color14:        #F0E68C
+!white
+#*color7:         #DDDDDD
+#*color15:        #FFFFFF
+
+
+#*foreground: #DDDDDD

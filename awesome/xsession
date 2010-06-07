@@ -1,0 +1,61 @@
+#!/bin/sh
+
+# ssh-agent && gpg-agent
+if which keychain >/dev/null; then
+  keychain --quiet --nogui || echo 'Failed to launch keychain'
+  [ -f ~/.keychain/`hostname`-sh ]     && . ~/.keychain/`hostname`-sh
+  [ -f ~/.keychain/`hostname`-sh-gpg ] && . ~/.keychain/`hostname`-sh-gpg
+fi
+
+# X ressources
+if which xrdb >/dev/null; then
+  xrdb -merge ~/.Xdefaults || echo 'Failed to load X ressources'
+fi
+
+# set DPMS and screensaver, disable beep, autorepeat
+if which xset >/dev/null; then
+  xset dpms 600 1200 4200 s 300 600 -b r rate 400 30 || echo 'Failed to configure X'
+fi
+
+# Compose key
+if which setxkbmap >/dev/null; then
+  setxkbmap -layout us -variant altgr-intl -option compose:menu || echo 'Failed to set keymap'
+fi
+
+# pointer
+if which xsetroot >/dev/null; then
+  xsetroot -cursor_name left_ptr || echo 'Failed to set pointer'
+fi
+
+# xbindkeys
+if which xbindkeys >/dev/null; then
+  LC_ALL=C xbindkeys || echo 'Failed to launch xbindkeys'
+fi
+
+# urxvtd
+# if which urxvtd >/dev/null; then
+#   urxvtd -f -o -q || echo 'Failed to launch urvxtd' &
+# fi
+
+# composite
+if which xcompmgr >/dev/null; then
+  xcompmgr -c -C -o0.2 -t1 -l1 -r2 || echo 'Failed to launch xcompmgr' &
+fi
+
+# musicpd
+if which mpd >/dev/null && ( [ ! -f ~/.mpd/pid ] || ! pgrep -F ~/.mpd/pid >/dev/null); then
+  ( mpd || echo 'Failed to launch MPD' ) &
+fi
+
+# mpdscribble
+if which xsetroot >/dev/null && ! pgrep -f mpdscribble; then
+  ( mpdscribble || echo 'Failed to launch mpdscribble' ) &
+fi
+
+# launch WM, launch the first found, by order of preference
+for wm in awesome wmii fluxbox e16 enlightenment fvwm; do
+  if which $wm >/dev/null; then
+    exec $wm >~/.xsession.log 2>&1
+  fi
+done
+
